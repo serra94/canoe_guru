@@ -8,14 +8,16 @@ const CardEvent = ({ event, onClick }) => {
 
   const statusColors = {
     open: 'text-green-400',
-    closed: 'text-red-400',
-    future: 'text-gray-400',
+    upcoming: 'text-gray-400',
+    in_progress: 'text-yellow-400',
+    finished: 'text-red-400',
   };
 
   const statusLabels = {
     open: t('event.status.open'),
-    closed: t('event.status.closed'),
-    future: t('event.status.future'),
+    upcoming: t('event.status.upcoming'),
+    in_progress: t('event.status.in_progress'),
+    finished: t('event.status.finished'),
   };
 
   return (
@@ -34,20 +36,26 @@ const CardEvent = ({ event, onClick }) => {
         <div className="flex justify-between items-start">
           <h3 className="font-bold text-white text-lg leading-tight">{event.name}</h3>
 
-          {event.status === 'open' && (
-            <div className="animate-pulse w-2 h-2 rounded-full bg-green-500 mt-1.5" />
-          )}
+        {event.status === 'open' && (
+          <div className="animate-pulse w-2 h-2 rounded-full bg-green-500 mt-1.5" />
+        )}
         </div>
 
         <p className="text-gray-400 text-sm mt-1 flex items-center gap-1">
-          <Calendar size={14} /> {event.date}
+          <Calendar size={14} />{" "}
+          {event.date ||
+            (event.starts_at
+              ? new Date(event.starts_at).toLocaleDateString()
+              : "")}
         </p>
 
         <div className="mt-2 flex justify-between items-center">
           <span
-            className={`text-xs font-bold uppercase tracking-wider ${statusColors[event.status]}`}
+            className={`text-xs font-bold uppercase tracking-wider ${
+              statusColors[event.status] || 'text-gray-400'
+            }`}
           >
-            {statusLabels[event.status]}
+            {statusLabels[event.status] || event.status}
           </span>
 
           {event.status === 'open' && (

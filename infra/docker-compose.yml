@@ -1,0 +1,61 @@
+services:
+  db_dev:
+    image: postgres:16
+    profiles: ["dev"]
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: canoe_guru_dev
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg_dev_data:/var/lib/postgresql/data
+
+  api_dev:
+    build:
+      context: ../backend
+    profiles: ["dev"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@db_dev:5432/canoe_guru_dev
+    ports:
+      - "8002:8000"
+    depends_on:
+      - db_dev
+
+  seed_dev:
+    build:
+      context: ../backend
+    profiles: ["dev"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@db_dev:5432/canoe_guru_dev
+    depends_on:
+      - db_dev
+    command: ["poetry", "run", "python", "-m", "app.seed"]
+    restart: "no"
+
+  db_prod:
+    image: postgres:16
+    profiles: ["prod"]
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: canoe_guru_prod
+    ports:
+      - "5434:5432"
+    volumes:
+      - pg_prod_data:/var/lib/postgresql/data
+
+  api_prod:
+    build:
+      context: ../backend
+    profiles: ["prod"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@db_prod:5432/canoe_guru_prod
+    ports:
+      - "8001:8000"
+    depends_on:
+      - db_prod
+
+volumes:
+  pg_dev_data:
+  pg_prod_data:

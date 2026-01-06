@@ -11,7 +11,7 @@ export const CATEGORIES = [
       id: 'ev1',
       name: 'World Cup Tacen',
       date: '15-17 Jun',
-      status: 'open', // open, closed, finished
+      status: 'open', // upcoming, open, in_progress, finished
       image: 'river',
       categories: CATEGORIES,
       resultsAvailable: false
@@ -20,7 +20,7 @@ export const CATEGORIES = [
       id: 'ev2',
       name: 'World Cup Prague',
       date: '20-22 Jun',
-      status: 'closed',
+      status: 'finished',
       image: 'stadium',
       categories: CATEGORIES,
       resultsAvailable: true,
@@ -33,7 +33,7 @@ export const CATEGORIES = [
       id: 'ev3',
       name: 'World Championships',
       date: '20-25 Aug',
-      status: 'future',
+      status: 'upcoming',
       image: 'gold',
       categories: CATEGORIES,
       resultsAvailable: false

@@ -36,11 +36,19 @@
   "event": {
     "status": {
       "open": "Open",
-      "closed": "Closed",
-      "future": "Coming Soon"
+      "upcoming": "Coming Soon",
+      "in_progress": "In Progress",
+      "finished": "Finished"
     },
     "titleFallback": "Event",
+    "loading": "Loading event...",
     "notFound": "Event not found.",
+    "statusBanner": {
+      "open": "Open for predictions",
+      "upcoming": "Coming soon",
+      "in_progress": "Event in progress",
+      "finished": "Event finished"
+    },
     "openForBets": "Open for predictions",
     "closesIn": "Closes in 2 days",
     "completeAllCategories": "Complete all categories to validate your team.",
@@ -48,7 +56,14 @@
 
     "results": {
       "title": "Results",
-      "finalScore": "Score:"
+      "finalScore": "Score:",
+      "showPicks": "Show picks",
+      "hidePicks": "Hide picks",
+      "noPick": "No selection"
+    },
+
+    "positions": {
+      "suffix": "º"
     },
 
     "podium": {
@@ -57,6 +72,8 @@
       "second": "2nd Place",
       "third": "3rd Place",
       "darkHorse": "Dark Horse",
+      "darkHorseInvalid": "Dark Horse must be outside the top 10.",
+      "duplicateAthlete": "This athlete is already selected.",
       "select": "Select...",
       "save": "SAVE PODIUM"
     },
@@ -142,4 +159,3 @@
   }
   
 }
-

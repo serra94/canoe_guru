@@ -1,15 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { Calendar, Trophy } from "lucide-react";
 import { getAds } from "../../services/adService";
-import { MOCK_EVENTS } from "../../mock/events";
+import { fetchEvents } from "../../services/api";
 import { useTranslation } from "react-i18next";
 
 const Carousel = ({ navigate, mode = "mixed", country = "BR" }) => {
   const [items, setItems] = useState([]);
   const [index, setIndex] = useState(0);
+  const [events, setEvents] = useState([]);
 
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
+
+  useEffect(() => {
+    let mounted = true;
+    fetchEvents()
+      .then((data) => {
+        if (mounted) setEvents(data);
+      })
+      .catch(() => {
+        if (mounted) setEvents([]);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, [mode, country, lang]);
 
   useEffect(() => {
     getAds(country, "carousel", lang).then((ads) => {
@@ -19,12 +35,12 @@ const Carousel = ({ navigate, mode = "mixed", country = "BR" }) => {
       }
 
       if (mode === "ads-only") {
-        const onlyAds = ads.map(ad => ({ type: "ad", data: ad }));
+        const onlyAds = ads.map((ad) => ({ type: "ad", data: ad }));
         setItems(onlyAds);
         return;
       }
 
-      const openEvents = MOCK_EVENTS.filter(e => e.status !== "closed");
+      const openEvents = events.filter((e) => e.status !== "finished");
 
       const combined = [];
       openEvents.forEach((ev, i) => {
@@ -36,7 +52,7 @@ const Carousel = ({ navigate, mode = "mixed", country = "BR" }) => {
 
       setItems(combined);
     });
-  }, [mode, country, lang]);
+  }, [events, mode, country, lang]);
 
   useEffect(() => {
     if (items.length === 0) return;
@@ -67,7 +83,13 @@ const Carousel = ({ navigate, mode = "mixed", country = "BR" }) => {
           </h3>
 
           <p className="text-gray-300 text-sm mt-1 flex items-center gap-2">
-            <Calendar size={14} /> {item.data.date}
+            <Calendar size={14} />{" "}
+            {item.data.starts_at
+              ? new Date(item.data.starts_at).toLocaleDateString(lang, {
+                  day: "2-digit",
+                  month: "short"
+                })
+              : ""}
           </p>
         </div>
       )}

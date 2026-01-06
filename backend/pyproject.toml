@@ -10,6 +10,9 @@ packages = [{ include = "app" }]
 python = ">=3.11,<4.0"
 fastapi = "^0.115.0"
 uvicorn = { version = "^0.30.0", extras = ["standard"] }
+sqlalchemy = "^2.0.0"
+alembic = "^1.13.0"
+psycopg = { version = "^3.2.0", extras = ["binary"] }
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.0"

@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { Check, X } from 'lucide-react';
 import { useTranslation } from "react-i18next";
 
-const ResultCard = ({ category, selections, officialResults }) => {
+const ResultCard = ({ category, selections, officialResults, athletes }) => {
   const { t } = useTranslation();
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const athleteNameById = useMemo(() => {
+    const map = {};
+    (athletes || []).forEach((athlete) => {
+      map[athlete.id] = athlete.name;
+    });
+    return map;
+  }, [athletes]);
+
+  const positions = [
+    { key: 'first', label: `1${t('event.positions.suffix')}` },
+    { key: 'second', label: `2${t('event.positions.suffix')}` },
+    { key: 'third', label: `3${t('event.positions.suffix')}` },
+    { key: 'darkHorse', label: t('podium.underdog') },
+  ];
+
+  const getSelectionStatus = (pos) => {
+    const selectedId = selections[pos];
+    if (!selectedId) return 'empty';
+    if (!officialResults) return 'pending';
+    return selectedId === officialResults[pos] ? 'hit' : 'miss';
+  };
 
   const calculatePoints = () => {
     let points = 0;
@@ -65,6 +88,37 @@ const ResultCard = ({ category, selections, officialResults }) => {
           );
         })}
       </div>
+
+      <button
+        onClick={() => setIsExpanded((prev) => !prev)}
+        className="mt-4 text-xs text-[#4f7cff] font-semibold"
+        type="button"
+      >
+        {isExpanded ? t('event.results.hidePicks') : t('event.results.showPicks')}
+      </button>
+
+      {isExpanded && (
+        <div className="mt-3 space-y-2 text-sm">
+          {positions.map((pos) => {
+            const selectedId = selections[pos.key];
+            const status = getSelectionStatus(pos.key);
+            const statusClass =
+              status === 'hit'
+                ? 'text-green-400'
+                : status === 'miss'
+                ? 'text-red-400'
+                : 'text-gray-400';
+            return (
+              <div key={pos.key} className="flex items-center justify-between">
+                <span className="text-gray-400">{pos.label}</span>
+                <span className={statusClass}>
+                  {selectedId ? athleteNameById[selectedId] || t('event.notFound') : t('event.results.noPick')}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -7,11 +7,27 @@ import Header from "../components/ui/Header";
 import Input from "../components/ui/Input";
 import CardEvent from "../components/core/CardEvent";
 
-import { MOCK_EVENTS } from "../mock/events";
+import { fetchEvents } from "../services/api";
 
 const MyTeamScreen = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    let mounted = true;
+    fetchEvents()
+      .then((data) => {
+        if (mounted) setEvents(data);
+      })
+      .catch(() => {
+        if (mounted) setEvents([]);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0a1a2f] pb-20">
@@ -24,7 +40,7 @@ const MyTeamScreen = () => {
           {t("team.available_events")}
         </h2>
 
-        {MOCK_EVENTS.map((event) => (
+        {events.map((event) => (
           <CardEvent
             key={event.id}
             event={event}
