@@ -86,3 +86,25 @@ From repo root:
   ```bash
   make backend-seed
   ```
+
+## Agent Context (quick refresher)
+
+- Backend: FastAPI + SQLAlchemy + Alembic in `backend/`
+- Frontend: React + Vite in `frontend/`
+- Dev DB runs via Docker on port `5433` (see `infra/`)
+- API dev container maps to `http://localhost:8002`
+- Frontend expects API at `VITE_API_BASE_URL=http://localhost:8002`
+- Seed script creates 4 events with statuses:
+  - `upcoming`, `open`, `in_progress`, `finished`
+- Event selection rules:
+  - Picks require 1st/2nd/3rd/Dark Horse
+  - Dark Horse must be outside top 10 (default for official events)
+  - No duplicate athlete per category selection
+- Game overview:
+  - Fantasy slalom canoe game: users build a team per event/category.
+  - MVP focuses on official events only (global ranking for all users).
+  - Future: users can create their own events with custom rules and CSV uploads.
+  - Events can be global (official) or custom (user-created).
+  - Users can create leagues (public/private) with separate rankings.
+  - App is bilingual (PT/EN) and mobile-first.
+  - Ads/monetization placements already exist in the frontend structure.
