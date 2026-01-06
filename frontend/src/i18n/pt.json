@@ -1,0 +1,144 @@
+{
+  "app": {
+    "name": "CanoeGuru"
+  },
+
+  "home": {
+    "hello": "Olá,",
+    "subtitle": "Prove que você é um verdadeiro Guru da canoagem!",
+    "global_rules": "Regras Globais",
+    "my_team": "Meu Time",
+    "global_ranking": "Ranking Global",
+    "leagues": "Ligas",
+    "understood": "Entendi"
+  },
+
+  "login": {
+    "subtitle": "Fantasy Game de Canoagem",
+    "email": "E-mail",
+    "password": "Senha",
+    "login_button": "ENTRAR",
+    "signup_button": "INSCREVER-SE",
+    "forgot": "Esqueci minha senha"
+  },
+
+  "team": {
+    "title": "Meu Time",
+    "search_event": "Buscar evento...",
+    "available_events": "Eventos Disponíveis"
+  },
+
+  "category": {
+    "complete": "4/4 Atletas definidos",
+    "incomplete": "Monte seu pódio"
+  },
+
+  "event": {
+    "status": {
+      "open": "Aberto",
+      "closed": "Encerrado",
+      "future": "Em Breve"
+    },
+    "titleFallback": "Evento",
+    "notFound": "Evento não encontrado.",
+    "openForBets": "Aberto para palpites",
+    "closesIn": "Fecha em 2 dias",
+    "completeAllCategories": "Complete todas as categorias para validar seu time.",
+    "confirmTeam": "CONFIRMAR TIME COMPLETO",
+
+    "results": {
+      "title": "Pontuação",
+      "finalScore": "Pontos:"
+    },
+
+    "podium": {
+      "title": "Pódio:",
+      "first": "1º Lugar",
+      "second": "2º Lugar",
+      "third": "3º Lugar",
+      "darkHorse": "Azarão",
+      "select": "Selecionar...",
+      "save": "SALVAR PÓDIO"
+    },
+
+    "athlete": {
+      "search": "Buscar atleta...",
+      "rank": "Rk",
+      "name": "Atleta",
+      "country": "País",
+      "other": "Outro Atleta",
+      "choose": "Escolher Atleta",
+      "chooseDarkHorse": "Escolher Azarão"
+    }
+  },
+
+  "league": {
+    "members": "Membros",
+    "public": "Aberta",
+    "private": "Fechada",
+    "search": "Buscar liga",
+
+    "create": {
+      "title": "Criar Nova Liga",
+      "nameLabel": "Nome da Liga",
+      "namePlaceholder": "Ex: Amigos do Remo",
+      "descriptionLabel": "Descrição / Regras",
+      "descriptionPlaceholder": "Descreva quem pode participar...",
+      "open": "Liga Aberta?",
+      "submit": "CRIAR LIGA"
+    },
+
+    "tabs": {
+      "mine": "Minhas",
+      "explore": "Explorar",
+      "admin": "Admin"
+    },
+
+    "requestEntry": "Solicitado entrada em"
+  },
+
+  "ranking": {
+    "title": "Ranking Global",
+    "season2025": "Temporada 2025",
+    "guruOfTheYear": "GURU DO ANO",
+    "user": "Usuário",
+    "points": "Pts"
+  },
+
+  "podium": {
+    "underdog": "Azarão"
+  },
+
+  "points": {
+    "short": "pts"
+  },
+
+  "carousel": {
+    "next_event": "Próximo Evento",
+    "sponsored": "Patrocinado"
+  },
+
+  "rules": {
+    "title_1": "Seleção de Atletas",
+    "title_2": "O que é o Azarão?",
+    "title_3": "Pontuação",
+    "title_4": "Fechamento dos Palpites",
+
+    "p1": "Escolha 4 atletas por categoria.",
+    "p2": "As posições são: 1º, 2º, 3º e o Azarão.",
+    "p3": "O Azarão deve estar fora do TOP 10 do ranking mundial.",
+
+    "p4": "Acerto exato (posição correta): 9 pts.",
+    "p5": "Pódio trocado (atleta certo, posição errada): 6 pts.",
+    "p6": "Azarão no pódio: 12 pts.",
+    "p7": "Bônus Guru (pódio completo na ordem): +20 pts.",
+
+    "p8": "Os palpites fecham 1 hora antes da primeira largada."
+  },
+  
+  "ads": {
+    "sponsored": "Patrocinado",
+    "wait": "Aguarde..."
+  }
+}
+  

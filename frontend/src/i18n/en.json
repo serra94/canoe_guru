@@ -1,0 +1,145 @@
+{
+  "app": {
+    "name": "CanoeGuru"
+  },
+
+  "home": {
+    "hello": "Hello,",
+    "subtitle": "Prove that you are a true canoeing Guru!",
+    "global_rules": "Global Rules",
+    "my_team": "My Team",
+    "global_ranking": "Global Ranking",
+    "leagues": "Leagues",
+    "understood": "Got it"
+  },
+
+  "login": {
+    "subtitle": "Canoeing Fantasy Game",
+    "email": "Email",
+    "password": "Password",
+    "login_button": "SIGN IN",
+    "signup_button": "SIGN UP",
+    "forgot": "Forgot my password"
+  },
+
+  "team": {
+    "title": "My Team",
+    "search_event": "Search event...",
+    "available_events": "Available Events"
+  },
+
+  "category": {
+    "complete": "4/4 Athletes selected",
+    "incomplete": "Set your podium"
+  },
+
+  "event": {
+    "status": {
+      "open": "Open",
+      "closed": "Closed",
+      "future": "Coming Soon"
+    },
+    "titleFallback": "Event",
+    "notFound": "Event not found.",
+    "openForBets": "Open for predictions",
+    "closesIn": "Closes in 2 days",
+    "completeAllCategories": "Complete all categories to validate your team.",
+    "confirmTeam": "CONFIRM FULL TEAM",
+
+    "results": {
+      "title": "Results",
+      "finalScore": "Score:"
+    },
+
+    "podium": {
+      "title": "Podium:",
+      "first": "1st Place",
+      "second": "2nd Place",
+      "third": "3rd Place",
+      "darkHorse": "Dark Horse",
+      "select": "Select...",
+      "save": "SAVE PODIUM"
+    },
+
+    "athlete": {
+      "search": "Search athlete...",
+      "rank": "Rk",
+      "name": "Athlete",
+      "country": "Country",
+      "other": "Other Athlete",
+      "choose": "Choose Athlete",
+      "chooseDarkHorse": "Choose Dark Horse"
+    }
+  },
+
+  "league": {
+    "members": "Members",
+    "public": "Public",
+    "private": "Private",
+    "search": "Search league",
+
+    "create": {
+      "title": "Create New League",
+      "nameLabel": "League Name",
+      "namePlaceholder": "e.g. Paddlers Friends",
+      "descriptionLabel": "Description / Rules",
+      "descriptionPlaceholder": "Describe who can join...",
+      "open": "Open League?",
+      "submit": "CREATE LEAGUE"
+    },
+
+    "tabs": {
+      "mine": "Mine",
+      "explore": "Explore",
+      "admin": "Admin"
+    },
+
+    "requestEntry": "Entry request to"
+  },
+
+  "ranking": {
+    "title": "Global Ranking",
+    "season2025": "Season 2025",
+    "guruOfTheYear": "GURU OF THE YEAR",
+    "user": "User",
+    "points": "Pts"
+  },
+
+  "podium": {
+    "underdog": "Dark Horse"
+  },
+
+  "points": {
+    "short": "pts"
+  },
+
+  "carousel": {
+    "next_event": "Next Event",
+    "sponsored": "Sponsored"
+  },
+
+  "rules": {
+    "title_1": "Athlete Selection",
+    "title_2": "What Is the “Azarão”?",
+    "title_3": "Scoring System",
+    "title_4": "Pick Deadline",
+
+    "p1": "Pick 4 athletes per category.",
+    "p2": "The positions to predict are: 1st, 2nd, 3rd and the Azarão.",
+    "p3": "The Azarão is similar to an underdog — an athlete ranked outside the TOP 10 who is not among the favorites but has the potential to surprise. It's a high-risk, high-reward pick.",
+
+    "p4": "Exact prediction (correct position): 9 pts.",
+    "p5": "Correct athlete, wrong position: 6 pts.",
+    "p6": "Azarão reaches the podium: 12 pts.",
+    "p7": "Guru Bonus (complete podium in order): +20 pts.",
+
+    "p8": "All picks close 1 hour before the first race."
+  },
+
+  "ads": {
+      "sponsored": "Sponsored",
+      "wait": "Please wait..."
+  }
+  
+}
+
