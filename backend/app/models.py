@@ -40,6 +40,7 @@ class EventCategory(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     event_id = Column(UUID(as_uuid=True), ForeignKey("events.id", ondelete="CASCADE"), nullable=False)
     name = Column(String(120), nullable=False)
+    name_en = Column(String(120), nullable=True)
     is_active = Column(Boolean, nullable=False, default=True)
     dark_horse_min_rank = Column(Integer, nullable=True)
 

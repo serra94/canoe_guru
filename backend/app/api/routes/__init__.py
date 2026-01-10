@@ -1,4 +1,5 @@
 from .athletes import router as athletes_router
+from .admin import router as admin_router
 from .categories import router as categories_router
 from .events import router as events_router
 from .picks import router as picks_router
@@ -7,6 +8,7 @@ from .scores import router as scores_router
 
 __all__ = [
     "athletes_router",
+    "admin_router",
     "categories_router",
     "events_router",
     "picks_router",

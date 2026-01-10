@@ -8,6 +8,8 @@ import EventScreen from '../screens/EventScreen';
 import LeaguesScreen from '../screens/LeaguesScreen';
 import CreateLeagueScreen from '../screens/CreateLeagueScreen';
 import RankingScreen from '../screens/RankingScreen';
+import AdminEventsScreen from '../screens/admin/AdminEventsScreen';
+import AdminEventScreen from '../screens/admin/AdminEventScreen';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -19,6 +21,8 @@ const AppRouter = () => (
       <Route path="/leagues" element={<LeaguesScreen />} />
       <Route path="/create-league" element={<CreateLeagueScreen />} />
       <Route path="/ranking" element={<RankingScreen />} />
+      <Route path="/admin" element={<AdminEventsScreen />} />
+      <Route path="/admin/events/:eventId" element={<AdminEventScreen />} />
     </Routes>
   </BrowserRouter>
 );

@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import (
     athletes_router,
+    admin_router,
     categories_router,
     events_router,
     picks_router,
@@ -32,6 +33,7 @@ def health_check() -> dict:
 app.include_router(events_router)
 app.include_router(categories_router)
 app.include_router(athletes_router)
+app.include_router(admin_router)
 app.include_router(picks_router)
 app.include_router(results_router)
 app.include_router(scores_router)
